@@ -1,0 +1,24 @@
+<!-- <search-io></search-io> -->
+
+<div>
+       <input type="text" [(ngModel)]="value">
+         <table>
+           <thead>
+             <tr>
+               <th>S.no</th>
+               <th>Name</th>
+               <th>Age</th>
+             </tr>
+           </thead>
+           <tbody>
+             @for(item of persons|search: value; track $index)
+               {
+                 <tr>
+                  <td>{{item.id}}</td>
+                  <td>{{item.name}}</td>
+                  <td>{{item.age}}</td>
+                 </tr>
+                }
+           </tbody>
+         </table>
+     </div>

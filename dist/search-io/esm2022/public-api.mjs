@@ -1,0 +1,5 @@
+/*
+ * Public API Surface of search-io
+ */
+export * from './lib/search-io.pipe';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljLWFwaS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3Byb2plY3RzL3NlYXJjaC1pby9zcmMvcHVibGljLWFwaS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7R0FFRztBQUNILGNBQWMsc0JBQXNCLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxyXG4gKiBQdWJsaWMgQVBJIFN1cmZhY2Ugb2Ygc2VhcmNoLWlvXHJcbiAqL1xyXG5leHBvcnQgKiBmcm9tICcuL2xpYi9zZWFyY2gtaW8ucGlwZSc7XHJcbiJdfQ==

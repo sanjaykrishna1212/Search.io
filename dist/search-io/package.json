@@ -1,0 +1,25 @@
+{
+  "name": "search-io",
+  "version": "1.0.0",
+  "peerDependencies": {
+    "@angular/common": "^17.3.0",
+    "@angular/core": "^17.3.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false,
+  "module": "fesm2022/search-io.mjs",
+  "typings": "index.d.ts",
+  "exports": {
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./index.d.ts",
+      "esm2022": "./esm2022/search-io.mjs",
+      "esm": "./esm2022/search-io.mjs",
+      "default": "./fesm2022/search-io.mjs"
+    }
+  }
+}
