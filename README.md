@@ -1,27 +1,103 @@
-# SearchIo
+# Search-io
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.3.
+A lightweight Angular pipe for searching values in an array of objects. Compatible with Angular 18+.
 
-## Development server
+## Features
+- Simple, declarative search in Angular templates
+- Case-insensitive matching
+- Works with any array of objects
+- No external dependencies
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Installation
 
-## Code scaffolding
+```sh
+npm install search-io
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Compatibility
+- Peer dependencies: @angular/core, @angular/common
 
-## Build
+## Usage
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### 1. Import the Pipe
 
-## Running unit tests
+If using standalone components (Angular 14+):
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```typescript
+import { SearchIoPipe } from 'search-io';
 
-## Running end-to-end tests
+@Component({
+  // ...
+  standalone: true,
+  imports: [SearchIoPipe],
+})
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Or, if using NgModule:
 
-## Further help
+```typescript
+import { SearchIoPipe } from 'search-io';
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+@NgModule({
+  declarations: [SearchIoPipe],
+  exports: [SearchIoPipe],
+})
+export class SharedModule {}
+```
+
+### 2. Use in Template
+
+```html
+<input [(ngModel)]="searchTerm" placeholder="Search...">
+<ul>
+  <li *ngFor="let person of people | search:searchTerm">
+    {{ person.name }} ({{ person.email }})
+  </li>
+</ul>
+```
+
+### 3. Example Component
+
+```typescript
+@Component({
+  selector: 'app-example',
+  template: `
+    <input [(ngModel)]="searchTerm" placeholder="Search...">
+    <ul>
+      <li *ngFor="let person of people | search:searchTerm">
+        {{ person.name }} ({{ person.email }})
+      </li>
+    </ul>
+  `,
+  standalone: true,
+  imports: [SearchIoPipe, FormsModule],
+})
+export class ExampleComponent {
+  searchTerm = '';
+  people = [
+    { name: 'Alice', email: 'alice@example.com' },
+    { name: 'Bob', email: 'bob@example.com' },
+    { name: 'Charlie', email: 'charlie@example.com' },
+  ];
+}
+```
+
+## API
+
+### Pipe: `search`
+
+**Usage:**
+```html
+*ngFor="let item of items | search:searchTerm"
+```
+
+- `items`: Array of objects to search
+- `searchTerm`: String to match (case-insensitive, matches any property value exactly)
+
+**Returns:**
+- Filtered array of objects where at least one property matches the search term (case-insensitive, exact match)
+
+## License
+
+MIT
+  
